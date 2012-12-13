@@ -15,8 +15,12 @@ var saveReport = function(report){
 };
 
 app.get('/', function(req, res){
-  res.render('index', {})
+	res.render('index', {});
 })
+
+app.get('/view/:id', function(req, res){
+	res.render('view', {image: {path: "upload/image.jpg"}, location: [0.0, 0.0], time: 1355367080.533427, type: "CHOQUE"});
+});
 
 // POST Datos
 app.post('/newreport', function(req, res){
