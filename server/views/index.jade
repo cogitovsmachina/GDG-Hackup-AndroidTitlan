@@ -1,6 +1,9 @@
 html
   body
     h1 Hello
-    form(method='post',action='/newreport')
-      input(type='file')
+    form(method='post', action='/newreport', enctype="multipart/form-data")
+      input(name='image', type='file')
+      input(name='location', type='hidden')
+      input(name='time', type='hidden')
+      input(name='type', type='hidden')
       input(type='submit') Subir

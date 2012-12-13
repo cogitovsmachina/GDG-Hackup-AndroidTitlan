@@ -1,3 +1,4 @@
+var fs = require("fs");
 var express = require("express");
 var app = express();
 
@@ -7,7 +8,7 @@ app.set('view engine', 'jade')
 
 var saveReport = function(report){
 	// Saves the report
-	fs.appendFile('log.txt', report, function(err){
+	fs.appendFile('log.txt', JSON.stringify(report), function(err){
 		console.log(err);
 	});
 	return 0;
@@ -18,7 +19,7 @@ app.get('/', function(req, res){
 })
 
 // POST Datos
-app.get('/newreport', function(req, res){
+app.post('/newreport', function(req, res){
 	try {
 		var report = {
 			image: req.files.image,
