@@ -1,8 +1,13 @@
 var express = require("express");
 var app = express();
 
+app.use(express.bodyParser({ keepExtensions: true, uploadDir: 'uploads/' }));
+
 var saveReport = function(report){
 	// Saves the report
+	fs.appendFile('log.txt', report, function(err){
+		console.log(err);
+	});
 	return 0;
 };
 
