@@ -7,6 +7,7 @@ var backend = require('./backend');
 app.use(express.bodyParser({ keepExtensions: true, uploadDir: 'uploads/' }));
 app.engine('jade', require('jade').__express);
 app.set('view engine', 'jade')
+app.use('/uploads', express.static(__dirname + '/uploads'));
 
 app.get('/', function(req, res){
 	res.render('index', {});
