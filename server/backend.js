@@ -32,9 +32,14 @@ var saveReport = function(report, cb){
   reporte.save(cb);
 };
 
+var getReportById = function(id, cb){
+  ReporteModel.findById(id, cb);
+};
+
 exports.Reporte = ReporteModel;
 exports.db = db;
 exports.saveReport = saveReport;
+exports.getReportById = getReportById;
 
 
 

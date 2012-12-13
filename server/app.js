@@ -8,20 +8,21 @@ app.use(express.bodyParser({ keepExtensions: true, uploadDir: 'uploads/' }));
 app.engine('jade', require('jade').__express);
 app.set('view engine', 'jade')
 
-var saveReport = function(report){
-	// Saves the report
-	fs.appendFile('log.txt', JSON.stringify(report), function(err){
-		console.log(err);
-	});
-	return 0;
-};
-
 app.get('/', function(req, res){
 	res.render('index', {});
 })
 
 app.get('/view/:id', function(req, res){
-	res.render('view', {image: {path: "upload/image.jpg"}, location: [0.0, 0.0], time: 1355367080.533427, type: "CHOQUE"});
+  backend.getReportById(req.params.id, function(err, report){
+    if(err){
+      res.status(500);
+      res.json({error: "Report not found "+req.params.id});
+    } else {
+      console.log(report);
+      res.status(200);
+      res.json(report);
+    }
+  })
 });
 
 // POST Datos
