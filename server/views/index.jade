@@ -3,7 +3,8 @@ html
     h1 Hello
     form(method='post', action='/newreport', enctype="multipart/form-data")
       input(name='image', type='file')
-      input(name='location', type='hidden')
+      input(name='latitude', type='hidden', value='0.1')
+      input(name='longitude', type='hidden', value='0.2')
       input(name='time', type='hidden')
       input(name='type', type='hidden')
       input(type='submit') Subir
