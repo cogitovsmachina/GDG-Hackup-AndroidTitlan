@@ -4,11 +4,21 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity" >
 
-    <TextView
+    <Button
+        android:id="@+id/tomar_foto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_world" />
+        android:text="Foto" />
+
+    <ImageView
+        android:id="@+id/imagen_capturada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tomar_foto"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        android:src="@drawable/ic_launcher" />
 
 </RelativeLayout>
