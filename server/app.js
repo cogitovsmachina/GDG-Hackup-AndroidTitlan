@@ -2,6 +2,8 @@ var express = require("express");
 var app = express();
 
 app.use(express.bodyParser({ keepExtensions: true, uploadDir: 'uploads/' }));
+app.engine('jade', require('jade').__express);
+app.set('view engine', 'jade')
 
 var saveReport = function(report){
 	// Saves the report
@@ -10,6 +12,10 @@ var saveReport = function(report){
 	});
 	return 0;
 };
+
+app.get('/', function(req, res){
+  res.render('index', {})
+})
 
 // POST Datos
 app.get('/newreport', function(req, res){
